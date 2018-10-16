@@ -99,5 +99,5 @@ fun brickPasses(a: Int, b: Int, c: Int, r: Int, s: Int): Boolean {
             b <= r && a <= s || a <= r && b <= s -> true
             else -> false
         }
-    }
-}
+    }}
+

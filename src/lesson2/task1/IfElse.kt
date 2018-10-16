@@ -50,6 +50,8 @@ fun minBiRoot(a: Double, b: Double, c: Double): Double {
     }
     val d = discriminant(a, b, c)   // 2
     if (d < 0.0) return Double.NaN  // 3
+
+
     // 4
     val y1 = (-b + sqrt(d)) / (2 * a)
     val y2 = (-b - sqrt(d)) / (2 * a)
