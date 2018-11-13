@@ -20,9 +20,9 @@ fun pointInsideCircle(x: Double, y: Double, x0: Double, y0: Double, r: Double) =
  * Определить, счастливое ли заданное число, вернуть true, если это так.
  */
 fun isNumberHappy(number: Int): Boolean {
-    val n2 = number / 100 - nl * 10
-    val n3 = number / 10 - number / 100 * 10
     val n1 = number / 1000
+    val n2 = number / 100 - n1*10
+    val n3 = number / 10 - number/1000
     val n4 = number % 10
     return when {
         n1 + n2 == n3 + n4 -> true

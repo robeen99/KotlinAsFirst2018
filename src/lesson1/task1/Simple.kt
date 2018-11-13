@@ -37,7 +37,7 @@ fun quadraticEquationRoot(a: Double, b: Double, c: Double) =
  *
  * Поиск произведения корней квадратного уравнения
  */
-fun quadraticRoo0tProduct(a: Double, b: Double, c: Double): Double
+fun quadraticRootProduct(a: Double, b: Double, c: Double): Double
 {
     val sd = sqrt(discriminant(a, b, c))
     val x1 = (-b + sd) / (2 * a)
@@ -131,11 +131,11 @@ fun thirdDigit(number: Int): Int {
  * Определите время поезда в пути в минутах (в данном случае 216).
  */
 fun travelMinutes(hoursDepart: Int, minutesDepart: Int, hoursArrive: Int, minutesArrive: Int): Int {
-    var hA : Int = hoursArrive*60
-    var mA : Int = minutesArrive
-    var hD : Int = hoursDepart * 60
-    var mD : Int = minutesDepart
-   var travelinMinutes: Int = (hA + mA - ( hD + mD ))
+    val hA : Int = hoursArrive*60
+    val mA : Int = minutesArrive
+    val hD : Int = hoursDepart * 60
+    val mD : Int = minutesDepart
+   val travelinMinutes: Int = (hA + mA - ( hD + mD ))
     return (travelinMinutes)
 }
 /**
@@ -146,7 +146,7 @@ fun travelMinutes(hoursDepart: Int, minutesDepart: Int, hoursArrive: Int, minute
  * Например, 100 рублей под 10% годовых превратятся в 133.1 рубля
  */
 fun accountInThreeYears(initial: Double, percent: Double): Double {
- val aI3Y: Double =( (initial + (1+percent/100).pow (3) )
+ val aI3Y: Double =( (initial + (1+percent/100).pow (3) ) )
     return (aI3Y)
 }
 /**
@@ -155,6 +155,4 @@ fun accountInThreeYears(initial: Double, percent: Double): Double {
  * Пользователь задает целое трехзначное число (например, 478).
  * Необходимо вывести число, полученное из заданного перестановкой цифр в обратном порядке (например, 874).
  */
-fun numberRevert(number: Int): Int {
-
-}
+fun numberRevert(number: Int): Int

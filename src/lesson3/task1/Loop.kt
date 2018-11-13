@@ -1,6 +1,11 @@
 @file:Suppress("UNUSED_PARAMETER")
 package lesson3.task1
 
+import lesson10.task1.parseExpr
+import kotlin.concurrent.fixedRateTimer
+import kotlin.math.PI
+import kotlin.math.abs
+import kotlin.math.pow
 import kotlin.math.sqrt
 
 /**
@@ -66,7 +71,7 @@ fun digitCountInNumber(n: Int, m: Int): Int =
  *
  * Использовать операции со строками в этой задаче запрещается.
  */
-fun digitNumber(n: Int): Int = {
+fun digitNumber(n: Int): Int {
     var result = 1
     var number = n
     while (number > 9) {
@@ -114,9 +119,9 @@ fun lcm(m: Int, n: Int): Int {
  * Для заданного числа n > 1 найти минимальный делитель, превышающий 1
  */
 fun minDivisor(n: Int): Int {
-    var Result = 2
-    while (n % Result != 0) {
-        Result++
+    var result = 2
+    while (n % result != 0) {
+        result++
     }
     return result
 }
@@ -158,15 +163,12 @@ fun isCoPrime(m: Int, n: Int): Boolean {
  * Например, для интервала 21..28 21 <= 5*5 <= 28, а для интервала 51..61 квадрата не существует.
  */
 fun squareBetweenExists(m: Int, n: Int): Boolean {
-    var nm= x
-    var result = 0 точный квадрат между m и n,
-    * то есть, существует ли такое целое k, что m <= k*k <= n.
-    while (nm!= 1) {
-        if (nm % 2 == 0) nm /= 2
-        else nm= nm * 3 + 1
-        result++
+    val sqrtN = sqrt(n.toDouble()).toInt()
+    val sqrtM = sqrt(m.toDouble()).toInt()
+    for (i in sqrtM..sqrtN) {
+        if (i * i in m..n) return true
     }
-    return result
+    return false
 }
 
 /**
@@ -210,14 +212,14 @@ fun collatzSteps(x: Int): Int {
  * sin(x) = x - x^3 / 3! + x^5 / 5! - x^7 / 7! + ...
  * Нужную точность считать достигнутой, если очередной член ряда меньше eps по модулю
  */
-fun sin(x: Double, eps: Double): Double = {
+fun sin(x: Double, eps: Double): Double  {
     val shortX = x % (2 * PI)
     var n = 3
     var memmber = shortX
     var sum = memmber
     while(abs(memmber) >= abs(eps))
     {
-        memmber *= (-1 * sqr(shortX)) / ((n - 1) * n)
+        memmber *= (-1 * sqrt(shortX)) / ((n - 1) * n)
         sum += memmber
         n += 2
     }
@@ -245,7 +247,7 @@ fun revert(n: Int): Int {
     var jdeed = 0.0
     for (i in digitNumber(n) - 1 downTo 0) {
         jdeed += (anotherOld % 10) * 10.0.pow(i)
-        anotherO /= 10
+        anotherOld /= 10
     }
     return jdeed.toInt()
 }
@@ -270,7 +272,7 @@ fun isPalindrome(n: Int): Boolean = TODO()
  * Использовать операции со строками в этой задаче запрещается.
  */
 fun hasDifferentDigits(n: Int): Boolean {
-    var d = n % 10
+    val d = n % 10
     var m = n / 10
     while (m > 0) {
         if (m % 10 != d) return true

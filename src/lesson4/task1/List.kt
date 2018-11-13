@@ -117,15 +117,14 @@ fun buildSumExample(list: List<Int>) = list.joinToString(separator = " + ", post
  */
 fun abs(v: List<Double>): Double {
     var sumSquares = 0.0
-    val list = v.map {it * it}
+    val list = v.map { it * it }
     for (i in 0 until list.size) {
         sumSquares += list[i]
     }
     sqrt(sumSquares)
-+ sqrt(list.sum())
+    val d : Double = +sqrt(list.sum())
+    else return {d}
 }
- else 0.0
-
  /**
  * Простая
  *
@@ -133,12 +132,12 @@ fun abs(v: List<Double>): Double {
  * Средняяist. Вернуть 0.0, если список пуст
  *//
 fun mean(list: List<Double>): Double {
-    if ((list.sum() / list.size)> 0)
+    if ((list.sum() / list.size) > 0)
         return (list.sum() / list.size)
-    else
+    else {
         return 0.0
+    }
 }
-
 /**
  *
  * Центрировать заданный список list, уменьшив каждый элемент на среднее арифметическое всех элементов.
