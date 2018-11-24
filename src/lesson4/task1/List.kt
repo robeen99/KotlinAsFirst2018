@@ -123,7 +123,7 @@ fun abs(v: List<Double>): Double {
     }
     sqrt(sumSquares)
     val d : Double = +sqrt(list.sum())
-    else return {d}
+    else return d.toDouble()
 }
  /**
  * Простая
