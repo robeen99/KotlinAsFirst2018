@@ -185,7 +185,7 @@ fun averageStockPrice(stockPrices: List<Pair<String, Double>>): Map<String, Doub
  *     "печенье"
  *   ) -> "Мария"
  */
-fun findCheapestStuff(stuff: Map<String, Pair<String, Double>>, kind: String): String {
+fun findCheapestStuff(stuff: Map<String, Pair<String, Double>>, kind: String): String? {
     val current = mutableListOf<Double>()
 
     val min = current.min()
@@ -236,7 +236,8 @@ fun propagateHandshakes(friends: Map<String, Set<String>>): Map<String, Set<Stri
  *   subtractOf(a = mutableMapOf("a" to "z"), mapOf("a" to "z"))
  *     -> a changes to mutableMapOf() aka becomes empty
  */
-fun subtractOf(a: MutableMap<String, String>, b: Map<String, String>): Unit = TODO()
+fun subtractOf(a: MutableMap<String, String>, b: Map<String, String>): Unit =
+        b.forEach { key, value -> a.remove(key, value) }
 
 /**
  * Простая
@@ -268,7 +269,13 @@ fun canBuildFrom(chars: List<Char>, word: String): Boolean = chars.map { it.toLo
  * Например:
  *   extractRepeats(listOf("a", "b", "a")) -> mapOf("a" to 2)
  */
-fun extractRepeats(list: List<String>): Map<String, Int>
+fun extractRepeats(list: List<String>): Map<String, Int> {
+    val result = mutableMapOf<String, Int>()
+    list.forEach { char ->
+        result[char] = (result[char] ?: 0) + 1
+    }
+    return result.filter { (_, it) -> it > 1 }
+}
 
 /**
  * Средняя

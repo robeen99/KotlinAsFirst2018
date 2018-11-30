@@ -115,7 +115,7 @@ fun trackLength(x1: Double, y1: Double, x2: Double, y2: Double): Double {
  * Определить третью цифру справа в этом числе (в данном случае 8).
  */
 fun thirdDigit(number: Int): Int {
-    var bbb : Int = number /100
+    var bbb  = number /100
      bbb = bbb %10
     return bbb
 
@@ -146,7 +146,7 @@ fun travelMinutes(hoursDepart: Int, minutesDepart: Int, hoursArrive: Int, minute
  * Например, 100 рублей под 10% годовых превратятся в 133.1 рубля
  */
 fun accountInThreeYears(initial: Double, percent: Double): Double {
- val aI3Y: Double =( (initial + (1+percent/100).pow (3) ) )
+ val aI3Y =( (initial + (1+percent/100).pow (3) ) )
     return (aI3Y)
 }
 /**
@@ -155,4 +155,12 @@ fun accountInThreeYears(initial: Double, percent: Double): Double {
  * Пользователь задает целое трехзначное число (например, 478).
  * Необходимо вывести число, полученное из заданного перестановкой цифр в обратном порядке (например, 874).
  */
-fun numberRevert(number: Int): Int .
+fun numberRevert(number: Int): Int {
+    val x = (number / 100)
+
+    val y = (number - x * 100) / 10
+
+    val z = (number - 10 * y - 100 * x)
+
+    return 100 * z + 10 * y + x
+}

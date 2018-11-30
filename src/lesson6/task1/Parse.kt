@@ -71,7 +71,29 @@ fun main(args: Array<String>) {
  * Обратите внимание: некорректная с точки зрения календаря дата (например, 30.02.2009) считается неверными
  * входными данными.
  */
-fun dateStrToDigit(str: String): String = TODO()
+fun dateStrToDigit(str: String): String {
+    val months = listOf("января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа",
+
+            "сентября", "октября", "ноября", "декабря")
+
+    if (str.matches(Regex("""[0-9]+\s[а-яА-Я]+\s[0-9]+"""))) {
+
+        val parts = str.split(' ')
+
+        if (parts.size != 3) return ""
+
+        val day = parts[0].toInt()
+
+        val years = parts[2].toInt()
+
+        val month = months.indexOf(parts[1]) + 1
+
+        if (month != 0) return String.format("%02d.%02d.%d", day, month, years)
+
+        else return ""
+
+    } else return ""
+}
 
 /**
  * Средняя
@@ -83,8 +105,23 @@ fun dateStrToDigit(str: String): String = TODO()
  * Обратите внимание: некорректная с точки зрения календаря дата (например, 30 февраля 2009) считается неверными
  * входными данными.
  */
-fun dateDigitToStr(digital: String): String = TODO()
-
+fun dateDigitToStr(digital: String): String {
+    val months = listOf("января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа",
+            "сентября", "октября", "ноября", "декабря")
+    return when {
+        digital.matches(Regex("""[0-9]{2}.[0-9]{2}.[0-9]+""")) -> {
+            val parts = digital.split('.')
+            val day = parts[0].toInt()
+            val year = parts[2].toInt()
+            val month = parts[1].toInt()
+            when {
+                month != 0 -> String.format("%d %s %d", day, months[month - 1], year)
+                else -> ""
+            }
+        }
+        else -> ""
+    }
+}
 /**
  * Средняя
  *
